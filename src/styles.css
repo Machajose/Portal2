@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: Roboto, Arial, sans-serif;
+  color: #222b38;
+  background: #f3f7f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --green: #98fb98;
+  --deep-green: #245b40;
+  --muted: #777e88;
+  --line: #e6e9e8;
+  --card: #fff;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button { font: inherit; }
+
+.topbar {
+  min-height: 116px;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--green);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  box-shadow: 0 3px 14px rgba(26, 67, 45, .08);
+}
+.brand { display: flex; align-items: center; gap: 17px; color: #050908; font-size: 36px; font-weight: 700; }
+.university-mark {
+  width: 64px; height: 64px; border: 3px double #315d47; border-radius: 50%;
+  display: grid; place-items: center; position: relative; background: #fffdf7;
+  box-shadow: 0 2px 6px #0002; color: #244b36; font-size: 11px; font-weight: 800;
+}
+.mark-ring { border: 1px solid #315d47; width: 49px; height: 49px; border-radius: 50%; display: grid; place-items: center; }
+.mark-center { position: absolute; font-size: 17px; color: #b34639; }
+.menu-button {
+  width: 104px; height: 72px; border: 1px solid rgba(255,255,255,.18); border-radius: 16px;
+  background: rgba(255,255,255,.05); display: grid; place-items: center; cursor: pointer;
+}
+.menu-lines { display: flex; flex-direction: column; gap: 8px; width: 43px; }
+.menu-lines i { display: block; height: 4px; border-radius: 5px; background: #d7ffd8; transition: transform .2s, opacity .2s; }
+.menu-lines.is-open i:first-child { transform: translateY(12px) rotate(45deg); }
+.menu-lines.is-open i:nth-child(2) { opacity: 0; }
+.menu-lines.is-open i:last-child { transform: translateY(-12px) rotate(-45deg); }
+
+.nav-menu { position: sticky; top: 116px; z-index: 4; display: flex; gap: 10px; padding: 14px max(24px, calc((100% - 1080px)/2)); background: #fff; box-shadow: 0 6px 16px #15291c10; }
+.nav-menu button { border: 0; background: transparent; color: #33413a; padding: 12px 16px; border-radius: 10px; cursor: pointer; font-weight: 600; }
+.nav-menu button.active, .nav-menu button:hover { background: #e8f4ed; color: var(--deep-green); }
+
+.page-content { width: min(100% - 64px, 1080px); margin: 32px auto 0; padding: 30px 0 38px; }
+.welcome-card, .profile-card, .personal-card, .metric-card, .notice-card {
+  background: var(--card); border: 1px solid #e9eeeb; box-shadow: 0 3px 9px rgba(22, 45, 32, .045);
+}
+.welcome-card { border-radius: 36px; padding: 38px 44px 36px; background: linear-gradient(120deg, #fff 0%, #f0f8f4 100%); margin-bottom: 36px; }
+.welcome-main { display: flex; align-items: center; gap: 30px; }
+.avatar { flex: 0 0 auto; width: 118px; height: 118px; border: 5px solid #d9eee3; border-radius: 50%; background: #e8f5ed; position: relative; overflow: hidden; box-shadow: 0 8px 20px #204e3820; }
+.avatar-head { width: 39px; height: 39px; border-radius: 50%; background: #2e8052; position: absolute; top: 22px; left: 35px; }
+.avatar-body { width: 76px; height: 48px; border-radius: 45px 45px 0 0; background: #2e8052; position: absolute; bottom: -4px; left: 16px; }
+.eyebrow { color: #285c42; font-size: 17px; font-weight: 700; letter-spacing: 5px; margin: 0 0 18px; }
+.cap-icon { font-size: 24px; letter-spacing: 0; margin-right: 10px; }
+.welcome-copy h1 { font-size: clamp(30px, 4vw, 39px); line-height: 1.12; margin: 0 0 13px; font-weight: 800; letter-spacing: -.7px; }
+.welcome-subtitle { margin: 0; color: var(--muted); font-size: 21px; line-height: 1.55; max-width: 530px; }
+.stage-pill, .semester-pill { border-radius: 99px; background: #e8f4ed; color: #285b40; border: 1px solid #d4e5dc; font-weight: 700; display: inline-flex; align-items: center; gap: 9px; }
+.stage-pill { padding: 13px 24px; margin-top: 30px; font-size: 18px; }
+.stage-pill span { border: 2px solid #4b8063; border-radius: 50%; width: 20px; height: 20px; display: inline-grid; place-items: center; font-size: 13px; }
+
+.metrics { display: grid; gap: 30px; }
+.metric-card { border-radius: 25px; border-left: 6px solid #245b40; padding: 32px 38px 28px; min-height: 155px; }
+.metric-label { margin: 0 0 22px; color: var(--muted); font-weight: 600; font-size: 17px; letter-spacing: .4px; }
+.metric-amount { margin: 0; font-size: clamp(28px, 4vw, 40px); font-weight: 800; letter-spacing: -.6px; color: #222b38; }
+.trend { margin: 16px 0 0; font-weight: 700; font-size: 18px; color: #285f43; }
+.trend span { font-size: 14px; margin-right: 4px; }
+.notice-card { display: flex; gap: 18px; align-items: flex-start; padding: 24px; border-radius: 22px; margin-top: 26px; }
+.notice-icon { background: #e8f4ed; color: #285b40; border-radius: 12px; width: 48px; height: 48px; display: grid; place-items: center; font-size: 25px; flex-shrink: 0; }
+.notice-card h2 { margin: 2px 0 7px; font-size: 20px; }
+.notice-card p { margin: 0; line-height: 1.5; color: var(--muted); }
+
+.profile-card { border-radius: 32px; padding: 38px 44px 44px; margin: 0 0 30px; }
+.student-heading { text-align: center; padding-bottom: 40px; }
+.student-heading h1 { font-size: clamp(25px, 3.3vw, 37px); margin: 0 0 10px; color: #25272b; letter-spacing: -.5px; }
+.registration { color: var(--muted); font-size: 22px; margin: 0 0 35px; }
+.semester-pill { padding: 14px 26px; font-size: 18px; }
+.academic-info h2 { font-size: 27px; margin: 0 0 26px; }
+.graduation-icon { font-size: 27px; margin-right: 7px; }
+.academic-info p { font-size: 21px; line-height: 1.65; margin: 0 0 15px; color: #303236; }
+.academic-info strong { font-weight: 700; }
+.green-text { color: #285b40; }
+.personal-card { border-radius: 0; overflow: hidden; }
+.section-heading { display: flex; gap: 22px; align-items: center; padding: 25px 30px; border-bottom: 1px solid var(--line); }
+.section-icon { display: grid; place-items: center; width: 70px; height: 70px; background: #e8f4ed; border-radius: 18px; color: #285b40; font-size: 30px; }
+.section-heading h2 { margin: 0 0 7px; font-size: 24px; }
+.section-heading p { margin: 0; color: var(--muted); font-size: 19px; }
+.personal-details { padding: 25px 30px; }
+.info-row { padding: 22px 0 25px; border-bottom: 1px solid var(--line); }
+.info-row:last-child { border-bottom: 0; }
+.info-label { color: var(--muted); font-size: 16px; font-weight: 700; letter-spacing: 1.2px; margin: 0 0 14px; }
+.info-value { font-size: 22px; font-weight: 600; margin: 0; overflow-wrap: anywhere; }
+.footer-note { text-align: center; color: #7a8580; font-size: 13px; padding: 30px 0 0; }
+
+@media (min-width: 850px) {
+  .metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+  .metric-card { padding: 28px 25px; }
+  .metric-amount { font-size: 28px; overflow-wrap: anywhere; }
+  .welcome-card { padding: 44px; }
+  .stage-pill { margin-left: 148px; }
+}
+@media (max-width: 600px) {
+  .topbar { min-height: 116px; padding: 17px 24px; }
+  .brand { gap: 14px; font-size: 34px; }
+  .university-mark { width: 60px; height: 60px; }
+  .menu-button { width: 104px; height: 72px; }
+  .page-content { width: calc(100% - 44px); margin-top: 30px; padding-top: 0; }
+  .welcome-card { border-radius: 34px; padding: 34px 32px 36px; margin-bottom: 36px; }
+  .welcome-main { align-items: flex-start; gap: 28px; }
+  .avatar { width: 118px; height: 118px; margin-top: 44px; }
+  .welcome-copy { min-width: 0; }
+  .eyebrow { font-size: 14px; letter-spacing: 3px; white-space: nowrap; margin-bottom: 18px; }
+  .cap-icon { margin-right: 5px; font-size: 19px; }
+  .welcome-copy h1 { font-size: 31px; }
+  .welcome-subtitle { font-size: 19px; line-height: 1.55; }
+  .stage-pill { margin-top: 30px; font-size: 18px; padding: 13px 24px; }
+  .metrics { gap: 30px; }
+  .metric-card { border-radius: 25px; padding: 32px 32px 28px; min-height: 166px; }
+  .metric-label { font-size: 17px; margin-bottom: 22px; }
+  .metric-amount { font-size: 36px; line-height: 1.2; }
+  .profile-card { padding: 30px 29px 38px; border-radius: 31px; }
+  .student-heading { padding-bottom: 38px; }
+  .student-heading h1 { font-size: 27px; line-height: 1.2; }
+  .registration { font-size: 20px; margin-bottom: 35px; }
+  .semester-pill { font-size: 17px; padding: 14px 24px; }
+  .academic-info h2 { font-size: 26px; margin-bottom: 22px; }
+  .academic-info p { font-size: 19px; line-height: 1.7; margin-bottom: 14px; }
+  .section-heading { padding: 25px 30px; gap: 22px; }
+  .section-icon { width: 70px; height: 70px; }
+  .section-heading h2 { font-size: 23px; }
+  .section-heading p { font-size: 18px; line-height: 1.4; }
+  .personal-details { padding: 25px 30px; }
+  .info-row { padding: 22px 0 25px; }
+  .info-value { font-size: 22px; }
+  .nav-menu { top: 116px; padding: 12px 18px; }
+}
+@media (max-width: 390px) {
+  .topbar { padding-inline: 15px; }
+  .brand { font-size: 29px; }
+  .menu-button { width: 70px; }
+  .page-content { width: calc(100% - 28px); }
+  .welcome-card { padding: 25px 20px; }
+  .welcome-main { gap: 15px; }
+  .avatar { width: 76px; height: 76px; margin-top: 45px; border-width: 4px; }
+  .avatar-head { width: 26px; height: 26px; top: 13px; left: 21px; }
+  .avatar-body { width: 52px; height: 33px; left: 8px; }
+  .eyebrow { white-space: normal; letter-spacing: 2px; font-size: 12px; }
+  .welcome-copy h1 { font-size: 26px; }
+  .welcome-subtitle { font-size: 16px; }
+  .stage-pill { font-size: 15px; padding: 12px 14px; }
+  .metric-card { padding: 26px 23px; }
+  .metric-amount { font-size: 29px; }
+}
